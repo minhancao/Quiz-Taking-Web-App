@@ -1,0 +1,2 @@
+export const GET_QUIZZES = "GET_QUIZZES";
+export const GET_QUIZ_QUESTIONS = "GET_QUIZ_QUESTIONS";
