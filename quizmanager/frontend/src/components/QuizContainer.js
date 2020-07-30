@@ -46,7 +46,6 @@ class QuizContainer extends Component {
       currAnsArr[this.state.currentQuestion] = chosenAnswer;
     }
     this.setState({ answers: currAnsArr });
-    console.log(this.state.answers);
   };
 
   handleSubmit = () => {
@@ -230,6 +229,7 @@ class QuizContainer extends Component {
               type="button"
               class="btn btn-light"
               onClick={() => this.prevQuestion()}
+              disabled={this.state.currentQuestion === 0 ? true : false}
             >
               Previous Question
             </button>

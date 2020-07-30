@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import environ
 import dj_database_url
 import os
 
@@ -20,7 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'mbwp+3fx@f9m2=c6#$*!l#6)q-164-)-!6lqz*i$os=^x4#+n+'
+env = environ.Env()
+env.read_env()
+SECRET_KEY = os.environ.get('SECRET_KEY', env('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
